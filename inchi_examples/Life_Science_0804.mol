@@ -1,0 +1,35 @@
+Compound 19419
+Actelion Java MolfileCreator 1.0
+
+  4  3  0  0  0  0  0  0  0  0999 V2000
+    0.0000   -0.0000   -0.0000 S   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.3016    0.7505   -0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.3133    2.2514   -0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+   -2.6032    0.0117   -0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  2  3  1  0  0  0  0
+  2  4  1  0  0  0  0
+M  END
+>  <Molecule Name>
+Compound 19419
+
+>  <Catalog #>
+BIO-983
+
+>  <Name>
+THIOUREA
+
+>  <Category>
+Products for Life Science
+
+>  <CAS#>
+62-56-6
+
+>  <MW>
+76.12
+
+>  <PURITY>
+'
+
+>  <MFCD>
+MFCD00008067

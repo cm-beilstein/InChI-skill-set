@@ -1,0 +1,38 @@
+Compound 7531
+Actelion Java MolfileCreator 1.0
+
+  5  5  0  0  0  0  0  0  0  0999 V2000
+    0.0000   -0.0000   -0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.0119   -1.4976   -0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.4263    0.4754   -0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.4144   -1.9493   -0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    2.3059   -0.7369   -0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  1  0  0  0  0
+  2  4  1  0  0  0  0
+  3  5  2  0  0  0  0
+  4  5  1  0  0  0  0
+M  END
+>  <Molecule Name>
+Compound 7531
+
+>  <Catalog #>
+BIO-148
+
+>  <Name>
+"1,3-DIAZACYCLOPENTA-2,4-DIENE"
+
+>  <Category>
+Products for Life Science
+
+>  <CAS#>
+288-32-4
+
+>  <MW>
+68.07
+
+>  <PURITY>
+'>99% GC
+
+>  <MFCD>
+MFCD00005183

@@ -1,0 +1,35 @@
+Compound 20586
+Actelion Java MolfileCreator 1.0
+
+  4  3  0  0  0  0  0  0  0  0999 V2000
+    0.0000   -0.0000   -0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.3016    0.7505   -0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.3133    2.2514   -0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+   -2.6032    0.0117   -0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  2  3  1  0  0  0  0
+  2  4  1  0  0  0  0
+M  END
+>  <Molecule Name>
+Compound 20586
+
+>  <Catalog #>
+BIO-421
+
+>  <Name>
+"UREA, MOLECULAR BIOLOGY GRADE"
+
+>  <Category>
+Products for Life Science
+
+>  <CAS#>
+57-13-6
+
+>  <MW>
+60.1
+
+>  <PURITY>
+'>99.5%
+
+>  <MFCD>
+MFCD00008022

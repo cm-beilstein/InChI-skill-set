@@ -1,0 +1,30 @@
+Compound 18601
+Actelion Java MolfileCreator 1.0
+
+  1  0  0  0  0  0  0  0  0  0999 V2000
+    0.0000   -0.0000   -0.0000 Rb  0  0  0  0  0  0  0  0  0  0  0  0
+M  CHG  1   1   1
+M  END
+>  <Molecule Name>
+Compound 18601
+
+>  <Catalog #>
+BIO-347
+
+>  <Name>
+RUBIDIUM CHLORIDE
+
+>  <Category>
+Products for Life Science
+
+>  <CAS#>
+7791-11-9
+
+>  <MW>
+120.92
+
+>  <PURITY>
+'99%
+
+>  <MFCD>
+MFCD00011187

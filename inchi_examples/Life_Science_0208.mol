@@ -1,0 +1,30 @@
+Compound 4999
+Actelion Java MolfileCreator 1.0
+
+  1  0  0  0  0  0  0  0  0  0999 V2000
+    0.0000   -0.0000   -0.0000 Cs  0  0  0  0  0  0  0  0  0  0  0  0
+M  CHG  1   1   1
+M  END
+>  <Molecule Name>
+Compound 4999
+
+>  <Catalog #>
+MB1006
+
+>  <Name>
+CAESIUM CHLORIDE
+
+>  <Category>
+Products for Life Science
+
+>  <CAS#>
+7647-17-8
+
+>  <MW>
+168.36
+
+>  <PURITY>
+'>99% by Assay
+
+>  <MFCD>
+MFCD00010955
