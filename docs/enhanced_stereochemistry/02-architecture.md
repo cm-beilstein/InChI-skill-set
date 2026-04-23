@@ -103,7 +103,6 @@ V3000 molfile
 │ Detect "V3000" in counts line        │
 │ Detect COLLECTION block             │
 │ Parse STEABS/STERELn/STERACn groups  │
-│ Store in orig_inp_data->nStereoKind[]│
 └──────────────────────────────────────┘
 ```
 
@@ -159,7 +158,7 @@ Enhanced stereo groups are stored in the original input data structure:
 ```c
 typedef struct tagORIG_ATOM_DATA {
     // ... other fields ...
-    U_CHAR *nStereoKind;      // [nAtoms] - Enhanced stereo kind per atom
+    
     // STEABS, STEREL, STERAC per atom
 } ORIG_ATOM_DATA;
 ```
@@ -201,15 +200,14 @@ Where each number represents a canonical atom with tetrahedral stereo.
 ```
 /m0        // Absolute, configuration as given
 /m1        // Inverted (mirrored)
-/m0,1       // Mix of absolute and inverted groups
 ```
 
 ### Stereo Type (/s) Layer
 
 ```
-/s1(...)           // ONE 's' prefix, then Absolute groups (atoms)
-/s1(...)2(...)    // ONE 's' prefix, Absolute + Relative groups
-/s1(...)2(...)3(// ONE 's' prefix, all three types
+/s1(...)             // ONE 's' prefix, then Absolute groups (atoms)
+/s1(...)2(...)       // ONE 's' prefix, Absolute + Relative groups
+/s1(...)2(...)3(...) // ONE 's' prefix, all three types
 ```
 
 Only ONE `s` at beginning, then group numbers (1,2,3) with their atom lists concatenated.

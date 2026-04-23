@@ -4,7 +4,7 @@
 
 ## What is Enhanced Stereochemistry?
 
-Enhanced stereochemistry is an InChI feature (introduced in v1.02) that allows representation of **stereogroups** - collections of atoms or bonds that share common stereochemical relationships. Unlike standard tetrahedral (R/S) and geometric (E/Z) stereochemistry which are defined per-center or per-bond, enhanced stereochemistry enables grouping of multiple stereocenters as a unit.
+Enhanced stereochemistry is an InChI feature that allows representation of **stereogroups** - collections of atoms or bonds that share common stereochemical relationships. Unlike standard tetrahedral (R/S) and geometric (E/Z) stereochemistry which are defined per-center or per-bond, enhanced stereochemistry enables grouping of multiple stereocenters as a unit.
 
 ### Standard vs Enhanced Stereochemistry
 
@@ -54,6 +54,30 @@ The `/m` layer contains the inversion flag for enhanced stereo:
 - `/m0` = Absolute configuration unchanged
 - `/m1` = Inverted (mirrored)
 
+### How Inversion Works
+
+When the `/m1` flag is set, stereochemistry is inverted via the `invert_parities()` function in `strutil.c`:
+
+**Parity Values:**
+- t-layer: `2` = "+" (e.g., R), `1` = "-" (e.g., S)
+- m-layer: `-1` = `/m0` (unchanged), `1` = `/m1` (inverted)
+
+**Inversion Process:**
+1. For each stereogroup, find the atom with the lowest canonical number
+2. If that atom has defined parity (`2`), flip ALL parities in the group:
+   - `1` → `2` (minus becomes plus)
+   - `2` → `1` (plus becomes minus)
+3. Mark the group as inverted (`nCompInv2Abs = -1`)
+
+**Example:**
+```
+Input:  /t3-,4-,5+,6-/m0/s1(3,4)(5)(6)
+After inversion (/m1):
+        /t3+,4+,5-,6-/m1/s1(3,4)(5)(6)
+```
+
+Each center's R/S designation is literally mirrored.
+
 ### S-Layer Format (CRITICAL - Multiple Groups per Type!)
 
 The `/s` layer is NOT just `1`, `2`, or `3`. It contains **explicit atom lists** for each stereogroup:
@@ -68,7 +92,7 @@ ONE `s` at beginning, then groups concatenated:
 - `s3` = Racemic (STERACn) - appears as `s3(atoms)(atoms)...` (multiple allowed)
 
 **Format Details:**
-- Each group outputs as `sX(atom1,atom2,...)` where X is 1, 2, or 3
+- Each group outputs as `X(atom1,atom2,...)` where X is 1, 2, or 3
 - Multiple groups of the same type are **separate parenthetical groups**
 - Atoms are listed using **canonical numbers** (not original atom numbers)
 - Groups are sorted by the first canonical atom number in each group
@@ -80,11 +104,11 @@ InChI=1B/C10H14BrCl7/c1-3(11)5(13)7(15)9(17)10(18)8(16)6(14)4(2)12/h3-10H,1-2H3/
 ```
 
 Breaking down the s-layer (`/s` prefix + groups):
-- `s1(3,5)` = Absolute group (STEABS): atoms 3,5
-- `s2(4)` = Relative 1 (STEREL1): atom 4  
-- `s2(6,8)` = Relative 2 (STEREL2): atoms 6,8
-- `s3(7,9)` = Racemic 1 (STERAC1): atoms 7,9
-- `s3(10)` = Racemic 2 (STERAC2): atom 10
+- `1(3,5)` = Absolute group (STEABS): atoms 3,5
+- `2(4)` = Relative 1 (STEREL1): atom 4  
+- `2(6,8)` = Relative 2 (STEREL2): atoms 6,8
+- `3(7,9)` = Racemic 1 (STERAC1): atoms 7,9
+- `3(10)` = Racemic 2 (STERAC2): atom 10
 
 ---
 
