@@ -138,15 +138,14 @@ The `/s` layer (stereo groups layer) contains explicit atom lists:
 
 | Component | Meaning | Example |
 |-----------|----------|---------|
-| `s1(...)` | Absolute (STEABS) groups | `s1(3,5)` |
-| `s2(...)` | Relative (STERELn) groups - **can have multiple** | `s2(4)(6,8)` |
-| `s3(...)` | Racemic (STERACn) groups - **can have multiple** | `s3(7,9)(10)` |
+| `s1(...)` | Absolute (STEABS) - appears once | `s1(3,5)` |
+| `s2(...)` | Relative (STERELn) - **can have multiple** as `s2(atoms)(atoms)...` | `s2(4)(6,8)` |
+| `s3(...)` | Racemic (STERACn) - **can have multiple** as `s3(atoms)(atoms)...` | `s3(7,9)(10)` |
 
 **Key Points:**
-1. Each group type (1, 2, 3) is prefixed with `s`
-2. Multiple groups of the same type are separate parenthetical entries
-3. Atoms are listed in **canonical number order** (sorted within each group)
-4. Groups are sorted by first canonical atom number across all types
+1. ONE `s` at beginning (`/s`), then all groups concatenated
+2. Each group type (1, 2, 3) prefixed with its number
+3. Multiple groups of same type are separate parenthetical entries (no commas)
 
 ### Format Examples
 

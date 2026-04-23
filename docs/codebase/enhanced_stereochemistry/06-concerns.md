@@ -101,7 +101,7 @@ M  V30 MDLV30/STEREL1 ATOMS=(2 5 6)  // Atom 3 duplicated!
 
 **Example**:
 ```
-/t1m,2m/m0,1/s1,s2
+/t1m,2m/m0,1/s1s2
 ```
 
 Here atoms 1-2 are in one group with /m0, and in another group with /m1

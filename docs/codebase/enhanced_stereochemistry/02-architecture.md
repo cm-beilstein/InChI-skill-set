@@ -17,12 +17,6 @@ Input File (V3000 molfile)
         │
         ▼
 ┌─────────────────────────────────────────────────────────┐
-│  SETTINGS: orig_inp_data->nStereoKind[]                │
-│  Stores: stereo_kind, atom_list for each group       │
-└─────────────────────────────────────────────────────────┘
-        │
-        ▼
-┌─────────────────────────────────────────────────────────┐
 │  strutil.c: set_EnhancedStereo_t_m_layers()         │
 │  - Creates /t layer entries for all centers           │
 │  - Creates /m layer with inversion flags               │
@@ -213,10 +207,12 @@ Where each number represents a canonical atom with tetrahedral stereo.
 ### Stereo Type (/s) Layer
 
 ```
-/s1        // Absolute (default)
-/s2        // Relative
-/s3        // Racemic
+/s1(...)           // ONE 's' prefix, then Absolute groups (atoms)
+/s1(...)2(...)    // ONE 's' prefix, Absolute + Relative groups
+/s1(...)2(...)3(// ONE 's' prefix, all three types
 ```
+
+Only ONE `s` at beginning, then group numbers (1,2,3) with their atom lists concatenated.
 
 ---
 

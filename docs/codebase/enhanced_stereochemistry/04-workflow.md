@@ -120,7 +120,7 @@ Step 6: Output Generation
 │                         │                                        │
 │  ┌───────────────────────────────────────────────────────────┐  │
 │  │ Output /s layer:                                         │  │
-│  │ Format: /s1, /s2, /s3, or combinations                  │  │
+│  │ Format: /s1(atoms)2(atoms)(atoms)3(atoms)(atoms)        │  │
 │  └───────────────────────────────────────────────────────────┘  │
 └─────────────────────────────────────────────────────────────────┘
                          │
@@ -190,13 +190,14 @@ else if (bInv2Abs == 1)  // Inverted > Absolute
 ### Step 5c: Stereo Type
 
 ```c
-// Output /s layer based on presence of groups
+// Output /s layer - ONE 's' prefix with all groups concatenated
 if (bHasSTEABS && !bHasSTEREL && !bHasSTERAC)
-    output_s = "/s1";  // All absolute
-else if (bHasSTEREL)
-    output_s = "/s2";  // Has relative
-else if (bHasSTERAC)
-    output_s = "/s3";  // Has racemic
+    output_s = "/s1(atoms)";       // Absolute only
+else if (bHasSTEREL && !bHasSTERAC)
+    output_s = "/s1(atoms)2(atoms)"; // Absolute + Relative
+else if (bHasSTEREL && bHasSTERAC)
+    output_s = "/s1(atoms)2(atoms)3(atoms)"; // All three types
+// Multiple groups of same type use separate parentheses: s2(4)(6,8)
 ```
 
 ---

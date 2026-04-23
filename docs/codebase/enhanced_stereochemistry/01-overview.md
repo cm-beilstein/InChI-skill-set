@@ -34,16 +34,21 @@ The `n` suffix in REL and RAC is an index (1, 2, 3...) allowing multiple groups.
 
 ## InChI Enhanced Stereo Layers
 
-Enhanced stereochemistry adds new layers to the InChI identifier:
+Enhanced stereochemistry adds new layers to the InChI identifier. Here's a real example from the unit tests:
 
 ```
-InChI=1S/.../c.../h.../b.../t1,2,3/m0/s1(a1,a2)a3,s2(b1)b2,s3(c1)c2
-            └─┬─┘ └─┬─┘ └─┬─┘ └─┬─┘
-              /t    /b    /s    /m
-              |     |     |     |
-         Double-bond  Tetrahedral  Stereo    Mobile-H
-         (geometric)   stereo     groups  inversion flag
+InChI=1B/C10H14BrCl7/c1-3(11)5(13)7(15)9(17)10(18)8(16)6(14)4(2)12/h3-10H,1-2H3/t3-,4-,5+,6-,7-,8-,9+,10-/m0/s1(3,5)2(4)(6,8)3(7,9)(10)
 ```
+
+| Layer | Position in Example | Description |
+|-------|---------------------|-------------|
+| `InChI=1B` | start | version (1) + flag (B) |
+| `/C10H14BrCl7` | after InChI=1B | molecular formula |
+| `/c...` | after `/C...` | connectivity (atom connections) |
+| `/h...` | after `/c...` | hydrogen layer |
+| `/t...` | after `/h...` | tetrahedral stereochemistry (parities) |
+| `/m0` | after `/t...` | mobile-H inversion flag (0=unchanged, 1=inverted) |
+| `/s...` | after `/m0` | enhanced stereo groups (s1=ABS, s2=REL, s3=RAC) |
 
 The `/m` layer contains the inversion flag for enhanced stereo:
 - `/m0` = Absolute configuration unchanged
@@ -54,13 +59,13 @@ The `/m` layer contains the inversion flag for enhanced stereo:
 The `/s` layer is NOT just `1`, `2`, or `3`. It contains **explicit atom lists** for each stereogroup:
 
 ```
-/s1(canonical_atoms)canonical_atoms,s2(canonical_atoms),s3(canonical_atoms)
+/s1(3,5)2(4)(6,8)3(7,9)(10)
 ```
 
-Where:
-- `s1` = Absolute (STEABS) group atoms
-- `s2` = Relative (STERELn) group atoms (multiple groups allowed)
-- `s3` = Racemic (STERACn) group atoms (multiple groups allowed)
+ONE `s` at beginning, then groups concatenated:
+- `s1` = Absolute (STEABS) - appears as `s1(atoms)`
+- `s2` = Relative (STERELn) - appears as `s2(atoms)(atoms)...` (multiple allowed)
+- `s3` = Racemic (STERACn) - appears as `s3(atoms)(atoms)...` (multiple allowed)
 
 **Format Details:**
 - Each group outputs as `sX(atom1,atom2,...)` where X is 1, 2, or 3
@@ -71,15 +76,15 @@ Where:
 ### Example Output
 
 ```
-InChI=1S/C10H14BrCl7/c1-3(11)5(13)7(15)9(17)10(18)8(16)6(14)4(2)12/h3-10H,1-2H3/t3-,4-,5+,6-,7-,8-,9+,10-/m0/s1(3,5)2(4)(6,8)3(7,9)(10)
+InChI=1B/C10H14BrCl7/c1-3(11)5(13)7(15)9(17)10(18)8(16)6(14)4(2)12/h3-10H,1-2H3/t3-,4-,5+,6-,7-,8-,9+,10-/m0/s1(3,5)2(4)(6,8)3(7,9)(10)
 ```
 
-Breaking down the s-layer:
-- `/s1(3,5)` = Absolute group (STEABS): atoms 3,5
-- `/s2(4)` = Relative 1 (STEREL1): atom 4  
-- `/s2(6,8)` = Relative 2 (STEREL2): atoms 6,8
-- `/s3(7,9)` = Racemic 1 (STERAC1): atoms 7,9
-- `/s3(10)` = Racemic 2 (STERAC2): atom 10
+Breaking down the s-layer (`/s` prefix + groups):
+- `s1(3,5)` = Absolute group (STEABS): atoms 3,5
+- `s2(4)` = Relative 1 (STEREL1): atom 4  
+- `s2(6,8)` = Relative 2 (STEREL2): atoms 6,8
+- `s3(7,9)` = Racemic 1 (STERAC1): atoms 7,9
+- `s3(10)` = Racemic 2 (STERAC2): atom 10
 
 ---
 
@@ -107,20 +112,10 @@ ip->bEnhancedStereo = 1;  // Enable enhanced stereochemistry
 
 ## History
 
-| Version | Change |
-|---------|-------|
-| 1.00 | Basic tetrahedral and geometric stereo |
-| 1.02 | Added enhanced stereochemistry support |
-| 1.05 | Improved handling of macrocycles |
-| 1.07 | Atropisomer support added (related feature) |
-
 ---
 
 ## References
 
-- InChI Technical Manual, Section 10: Enhanced Stereochemistry
-- CTFile V3000 Format Specification (BIOVIA)
-- Source: `mol_fmt3.c` lines 695-780, `ichiprt1.c` lines 3508-3600
 
 ---
 

@@ -48,12 +48,12 @@ M  V30 MDLV30/STEREL2 ATOMS=(1 14)
 InChI=1B/C10H14BrCl7/c1-3(11)5(13)7(15)9(17)10(18)8(16)6(14)4(2)12/h3-10H,1-2H3/t3-,4-,5+,6-,7-,8-,9+,10-/m0/s1(3,5)2(4)(6,8)3(7,9)(10)
 ```
 
-**S-Layer Breakdown:**
-- `/s1(3,5)` = STEABS: atoms 3,5
-- `/s2(4)` = STEREL1
-- `/s2(6,8)` = STEREL2
-- `/s3(7,9)` = STERAC1
-- `/s3(10)` = STERAC2
+**S-Layer Breakdown:** Only ONE `s` in `/s`, followed by all groups concatenated:
+- `s1(3,5)` = STEABS: atoms 3,5
+- `s2(4)` = STEREL1
+- `s2(6,8)` = STEREL2
+- `s3(7,9)` = STERAC1
+- `s3(10)` = STERAC2
 
 ### Test 2: Atropisomer
 
@@ -155,9 +155,9 @@ make
 
 **Input:** 1 STEABS, 1 STEREL, 1 STERAC
 
-**S-layer:**
+**S-layer:** ONE `s` at beginning, followed by all groups concatenated
 ```
-/s1(a1)2(a2),s3(a3)
+/s1(a1)s2(a2)s3(a3)
 ```
 
 ### Pattern 2: Multiple Same Type
@@ -166,7 +166,7 @@ make
 
 **S-layer:**
 ```
-/s2(a1)(a2),s3(b1)(b2)
+/s1(a1)s2(a2)s2(a3)s3(b1)s3(b2)
 ```
 
 ### Pattern 3: Only ONE Type
@@ -184,9 +184,9 @@ make
 
 All documentation should be verified against these test cases:
 
-1. **S-layer format** - Must match `/s1(...)s2(...)s3(...)` with parentheses
+1. **S-layer format** - ONE `s` at beginning: `/s1(atoms)(atoms)2(atoms)(atoms)3(atoms)(atoms)` - multiple groups of same type use separate parentheses
 2. **Canonical numbers** - Atoms are referenced by canonical number, not input number
-3. **Multiple groups** - Each group appears as separate parenthetical group
+3. **Multiple groups** - Multiple groups of the same type appear as separate parenthetical groups (e.g., `s2(4)(6,8)` not `s2(4,6,8)`)
 4. **Group sorting** - Groups sorted by first canonical atom in each group
 
 ---
