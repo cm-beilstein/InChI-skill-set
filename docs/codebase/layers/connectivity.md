@@ -264,7 +264,7 @@ H H
 
 **InChI:**
 ```
-InChI=1S/C2H6O/c1-2-3/h3H,1-2H2,3H2H
+InChI=1S/C2H6O/c1-2-3/h3H,2H2,1H3
 ```
 
 Breaking this down:
@@ -299,7 +299,7 @@ C5      C3
 
 **InChI:**
 ```
-InChI=1S/C6H6/c1-2-3-4-5-6-1/h1-2H3-3H3-4H3-5H3-6H3
+InChI=1S/C6H6/c1-2-4-6-5-3-1/h1-6H
 ```
 
 **Connectivity Layer:** The `/c1-2-3-4-5-6-1` notation shows:
@@ -319,7 +319,7 @@ InChI=1S/C6H6/c1-2-3-4-5-6-1/h1-2H3-3H3-4H3-5H3-6H3
 
 **InChI:**
 ```
-InChI=1S/C3H6/c1-2-3-1/h1-2H2-3H2
+InChI=1S/C3H6/c1-2-3-1/h1-3H2
 ```
 
 **Connectivity:**

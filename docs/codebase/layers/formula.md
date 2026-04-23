@@ -202,7 +202,7 @@ function CountPseudoElementInFormula(pseudo, s):
 | Ethanol (C₂H₆O) | C2H6O | `InChI=1S/C2H6O/c1-2-3/h3H,2H2,1H3` |
 | Benzene (C₆H₆) | C6H6 | `InChI=1S/C6H6/c1-2-4-6-5-3/h1-6H` |
 | Water (H₂O) | H2O | `InChI=1S/H2O/h1H2` |
-| Ammonia (NH₃) | H3N | `InChI=1S/H3N/h1H2-1` |
+| Ammonia (NH₃) | H3N | `InChI=1S/H3N/h1H3` |
 | Carbon dioxide (CO₂) | CO2 | `InChI=1S/CO2/c2-1-3` |
 
 ### Inorganic Compounds
@@ -211,7 +211,7 @@ function CountPseudoElementInFormula(pseudo, s):
 |---------------|--------------|-------------|
 | Sodium chloride | ClNa | `InChI=1S/ClNa` |
 | Calcium carbonate | CaCO3 | `InChI=1S/CH2O3.Ca/c2-1(3)4;/h1-3H;(Ca+2)/` |
-| Sulfuric acid | H2O4S | `InChI=1S/H2O4S/h1H2,(S+2)` |
+| Sulfuric acid | H2O4S | `InChI=1S/H2O4S/h1H2` |
 
 ### With Pseudo-elements
 

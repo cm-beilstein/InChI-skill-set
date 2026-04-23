@@ -17,11 +17,11 @@ The charge layer becomes part of the InChI identifier when a molecule carries a 
 InChI uses `/q` followed by an integer to represent the charge:
 
 ```
-InChI=1S/C2H6O/c1-2-3/h3H2,1-2H2
+InChI=1S/C2H6O/c1-2-3/h3H,2H2,1H3
 InChI=1S/CH4/h1H4            # methane (no charge layer needed)
-InChI=1S/Na/h1H/q+1          # sodium cation
-InChI=1S/ClHCl.H2Na.Na.Na/c1-2;;;//p+1  # sodium chloride (multiple components)
-InChI=1S/C2H5NO2/c1-2-3(4)5(1)6/h1H2,4-6H/q+1  # glycine zwitterion (has both charges)
+InChI=1S/Na/q+1          # sodium cation
+InChI=1S/ClH.Na/h1H;/q;+1/p-1  # sodium chloride
+InChI=1S/C2H5NO2/c3-1-2(4)5/h1,3H2,(H,4,5)  # glycine zwitterion
 ```
 
 **Output format examples:**
@@ -250,7 +250,7 @@ END FUNCTION
 
 ```
 SMILES: [Na+]
-InChI: InChI=1S/Na/h1H/q+1
+InChI: InChI=1S/Na/q+1
 ```
 
 - Element: Na (sodium)
@@ -261,7 +261,7 @@ InChI: InChI=1S/Na/h1H/q+1
 
 ```
 SMILES: [Cl-]
-InChI: InChI=1S/ClHCl/h1H/q-1
+InChI: InChI=1S/ClH/h1H/p-1
 ```
 
 - Element: Cl with H (HCl)
@@ -272,7 +272,7 @@ InChI: InChI=1S/ClHCl/h1H/q-1
 
 ```
 SMILES: [Na+].[Cl-]
-InChI: InChI=1S/ClHCl.H2Na.Na.Na/c1-2;;;//p+1/rh3:ClHCl,NaH2
+InChI: InChI=1S/ClH.Na/h1H;/q;+1/p-1
 ```
 
 - Multiple components, each component can have charge
@@ -283,7 +283,7 @@ InChI: InChI=1S/ClHCl.H2Na.Na.Na/c1-2;;;//p+1/rh3:ClHCl,NaH2
 
 ```
 SMILES: [NH3+]CC(=O)[O-]
-InChI: 1S/C2H5NO2/c1-2-3(4)5(1)6/h1H2,4-6H/q+1/p+1
+InChI: 1S/C2H5NO2/c3-1-2(4)5/h1,3H2,(H,4,5)
 ```
 
 - NH3+ group: +1 charge (cationic)
@@ -295,7 +295,7 @@ InChI: 1S/C2H5NO2/c1-2-3(4)5(1)6/h1H2,4-6H/q+1/p+1
 
 ```
 SMILES: [O-]C(=O)C(=O)[O-]
-InChI: 1S/C2O4/c3-1(4)5-2(3)6-4/h2-3H2/q-2
+InChI: 1S/C2H2O4/c3-1(4)2(5)6/h(H,3,4)(H,5,6)/p-2
 ```
 
 - Two carboxylate groups, each -1

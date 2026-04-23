@@ -78,7 +78,7 @@ InChI=1S/{layers}
 
 **Example:**
 ```
-InChI=1S/C2H6O/c1-2-3/h3H,2H2,1H2
+InChI=1S/C2H6O/c1-2-3/h3H,2H2,1H3
 ```
 
 The `S` after the version number indicates this is a **Standard InChI** - the only format recommended for database exchange and chemical information systems.
@@ -126,7 +126,7 @@ XXXXXXXXXXXXXX-YYYYYYYY-Y-Z
 
 **Example:**
 ```
-InChI=1S/C2H6O/c1-2-3/h3H,2H2,1H2
+InChI=1S/C2H6O/c1-2-3/h3H,2H2,1H3
 → LFQDQGVMQVDCBZ-UHFFFAOYSA-N
 ```
 
@@ -189,7 +189,7 @@ InChI=1S/{formula}/{connections}/{hydrogens}/{stereo}/{charge}/{isotopes}
 
 **Format example:**
 ```
-InChI=1S/C2H6O/c1-2-3/h3H,2H2,1H2
+InChI=1S/C2H6O/c1-2-3/h3H,2H2,1H3
 ```
 
 | Component | Prefix | Description |
@@ -417,7 +417,7 @@ Isotopic atom specifications:
 
 **InChI Output:**
 ```
-InChI=1S/C2H6O/c1-2-3/h3H,2H2,1H2
+InChI=1S/C2H6O/c1-2-3/h3H,2H2,1H3
 ```
 
 **InChIKey:**
