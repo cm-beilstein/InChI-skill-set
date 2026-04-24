@@ -10,13 +10,6 @@ This project contains attempts at creating an InChI skill set for AI agents. The
 - **mol-to-inchi-ver2/** — Second attempt (refined approach)
 - **mol-to-inchi-ver3/** — Third attempt (skill-creator and python code allowed, self-improving skill didnt work)
 
-## InChI String Format
-
-```
-InChI=1S/<formula>/c<connections>/h<mobile_H>/q<charge>/p<protons>/i<isotopes>/b<sp2_stereo>/t<sp3_stereo>/m<markers>
-```
-
-Layer order: `/f → /c → /h → /m → /q → /p → /i → /b → /t → /s → /r`
 
 ## Project Structure
 
@@ -25,7 +18,8 @@ InChI-skill-set/
 ├── mol-to-inchi-ver1/      # First attempt
 ├── mol-to-inchi-ver2/      # Second attempt
 ├── mol-to-inchi-ver3/      # Third attempt
-├── data/                  # .mol and .inchi files
+├── src/formula             # Python code for hill formula
+├── data/                   # .mol and .inchi files
 └── README.md
 ```
 
